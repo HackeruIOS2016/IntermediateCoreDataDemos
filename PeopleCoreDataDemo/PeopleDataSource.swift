@@ -21,20 +21,18 @@ class PeopleDataSource {
         fetchPeople()
     }
     
+    func delete(person:Person){
+        context.deleteObject(person)
+        do{try context.save()}
+        catch let e as NSError{
+            print(e)
+        }
+    }
     
     func fetchPeople(){
         let request = NSFetchRequest(entityName: "Person")
         do{
-            let peopleArray = try context.executeFetchRequest(request)
-            
-                people.removeAll()
-            for p in peopleArray{
-                let firstName = p.valueForKey("firstName") as! String
-                let lastName = p.valueForKey("lastName") as! String
-                
-                let person = Person(firstName: firstName, lastName: lastName)
-                people.append(person)
-            }
+            people = try context.executeFetchRequest(request) as! [Person]
         }
         catch let e as NSError{
             print(e)
@@ -44,10 +42,10 @@ class PeopleDataSource {
     func addPerson(firstName:String, lastName:String){
         let personTable = NSEntityDescription.entityForName("Person", inManagedObjectContext: context)!
         
-        let person = NSManagedObject(entity: personTable, insertIntoManagedObjectContext: context)
+        let person = Person(entity: personTable, insertIntoManagedObjectContext: context)
         
-        person.setValue(firstName, forKey: "firstName")
-        person.setValue(lastName, forKey: "lastName")
+        person.firstName = firstName// setValue(firstName, forKey: "firstName")
+        person.lastName = lastName// setValue(lastName, forKey: "lastName")
         
         do{
             try context.save()
@@ -55,8 +53,8 @@ class PeopleDataSource {
         catch let e as NSError{
             print(e)
         }
-        let p = Person(firstName: firstName, lastName: lastName)
-        people.append(p)
+       // let p = Person(firstName: firstName, lastName: lastName)
+        people.append(person)
         //fetchPeople()
     }
 }

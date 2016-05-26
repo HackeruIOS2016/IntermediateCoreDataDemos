@@ -27,10 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func fetchPeople(){
         let request = NSFetchRequest(entityName: "Person")
         do{
-            let people:[AnyObject] = try  managedObjectContext.executeFetchRequest(request)
+            let people = try  managedObjectContext.executeFetchRequest(request) as! [Person]
             for person in people{
-                print(person.valueForKey("firstName")!)
-                print(person.valueForKey("lastName")!)
+                print(person.firstName)
+                print(person.lastName)
             }
         }
         catch let e as NSError{
@@ -45,12 +45,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         for i in 1...25{
             //init a managed object: with person description
-            let moshe = NSManagedObject(
+            let moshe = Person(
                 entity: personDescription, insertIntoManagedObjectContext: managedObjectContext)
         
             //set some properties:
-            moshe.setValue("Moshe \(i)", forKey: "firstName")
-            moshe.setValue("Dodger \(i)", forKey: "lastName")
+            moshe.firstName = "Moshe \(i)" //.setValue("Moshe \(i)", forKey: "firstName")
+            moshe.lastName = "Dodger \(i)"//.setValue("Dodger \(i)", forKey: "lastName")
         }
         try! managedObjectContext.save()
         

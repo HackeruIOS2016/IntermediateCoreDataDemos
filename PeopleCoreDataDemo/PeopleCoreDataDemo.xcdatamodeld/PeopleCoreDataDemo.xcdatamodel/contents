@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15E65" minimumToolsVersion="Automatic">
     <entity name="Kittens" syncable="YES"/>
-    <entity name="Person" syncable="YES">
+    <entity name="Person" representedClassName=".Person" syncable="YES">
         <attribute name="firstName" attributeType="String" minValueString="2" syncable="YES"/>
         <attribute name="lastName" attributeType="String" syncable="YES"/>
     </entity>

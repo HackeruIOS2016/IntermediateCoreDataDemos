@@ -88,40 +88,66 @@ class PeopleTableViewController: UITableViewController {
     }
     
 
- 
+
+
+    var indexPath:NSIndexPath?
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let person = dataSource.people[indexPath.row]
+        performSegueWithIdentifier("EditSegue", sender: person)
+        self.indexPath = indexPath
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if let path = indexPath{
+            tableView.reloadRowsAtIndexPaths([path], withRowAnimation: .None)
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let dest = segue.destinationViewController as? DetailsViewController{
+            dest.data = (sender as! Person)
+        }
+    }
+   
+    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
    
-
-    /*
+    
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
+            let person = dataSource.people[indexPath.row]
+            dataSource.delete(person)
+            
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
+            
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+  
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
 
     }
-    */
+  
 
-    /*
+    
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-    */
+  
 
     /*
     // MARK: - Navigation
