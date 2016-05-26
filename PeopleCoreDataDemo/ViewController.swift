@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
-
+    var delegate:AppDelegate!
+    var context:NSManagedObjectContext!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+          delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+          context = delegate.managedObjectContext
     }
 
     override func didReceiveMemoryWarning() {
