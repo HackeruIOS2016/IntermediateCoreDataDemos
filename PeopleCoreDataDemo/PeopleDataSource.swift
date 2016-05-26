@@ -21,7 +21,9 @@ class PeopleDataSource {
         fetchPeople()
     }
     
-    func delete(person:Person, index:Int){
+    func delete(index:Int){
+        let person = people[index]
+
         context.deleteObject(person)
         do{
             try context.save()
@@ -34,6 +36,8 @@ class PeopleDataSource {
     
     func fetchPeople(){
         let request = NSFetchRequest(entityName: "Person")
+        request.sortDescriptors = [NSSortDescriptor(key: "firstName", ascending: true)]
+        
         do{
             people = try context.executeFetchRequest(request) as! [Person]
         }

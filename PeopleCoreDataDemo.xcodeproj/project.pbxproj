@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D2ECFD01CF720FC00D867C3 /* Phone+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2ECFCC1CF720FC00D867C3 /* Phone+CoreDataProperties.swift */; };
+		6D2ECFD11CF720FC00D867C3 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2ECFCD1CF720FC00D867C3 /* Phone.swift */; };
+		6D2ECFD21CF720FC00D867C3 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2ECFCE1CF720FC00D867C3 /* Person+CoreDataProperties.swift */; };
+		6D2ECFD31CF720FC00D867C3 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2ECFCF1CF720FC00D867C3 /* Person.swift */; };
 		6D52EB981CF6CE6D00AA81A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D52EB971CF6CE6D00AA81A9 /* AppDelegate.swift */; };
 		6D52EB9A1CF6CE6D00AA81A9 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D52EB991CF6CE6D00AA81A9 /* DetailsViewController.swift */; };
 		6D52EB9D1CF6CE6D00AA81A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D52EB9B1CF6CE6D00AA81A9 /* Main.storyboard */; };
@@ -15,11 +19,13 @@
 		6D52EBA51CF6CE6D00AA81A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D52EBA31CF6CE6D00AA81A9 /* LaunchScreen.storyboard */; };
 		6D52EBAD1CF6DDB800AA81A9 /* PeopleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D52EBAC1CF6DDB800AA81A9 /* PeopleTableViewController.swift */; };
 		6D52EBAF1CF6F0D500AA81A9 /* PeopleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D52EBAE1CF6F0D500AA81A9 /* PeopleDataSource.swift */; };
-		6D52EBB41CF708A000AA81A9 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D52EBB21CF708A000AA81A9 /* Person+CoreDataProperties.swift */; };
-		6D52EBB51CF708A000AA81A9 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D52EBB31CF708A000AA81A9 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D2ECFCC1CF720FC00D867C3 /* Phone+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Phone+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6D2ECFCD1CF720FC00D867C3 /* Phone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
+		6D2ECFCE1CF720FC00D867C3 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6D2ECFCF1CF720FC00D867C3 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		6D52EB941CF6CE6D00AA81A9 /* PeopleCoreDataDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeopleCoreDataDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D52EB971CF6CE6D00AA81A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D52EB991CF6CE6D00AA81A9 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -30,8 +36,6 @@
 		6D52EBA61CF6CE6D00AA81A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D52EBAC1CF6DDB800AA81A9 /* PeopleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleTableViewController.swift; sourceTree = "<group>"; };
 		6D52EBAE1CF6F0D500AA81A9 /* PeopleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDataSource.swift; sourceTree = "<group>"; };
-		6D52EBB21CF708A000AA81A9 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Person+CoreDataProperties.swift"; path = "../Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		6D52EBB31CF708A000AA81A9 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = ../Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +68,10 @@
 		6D52EB961CF6CE6D00AA81A9 /* PeopleCoreDataDemo */ = {
 			isa = PBXGroup;
 			children = (
-				6D52EBB21CF708A000AA81A9 /* Person+CoreDataProperties.swift */,
-				6D52EBB31CF708A000AA81A9 /* Person.swift */,
+				6D2ECFCC1CF720FC00D867C3 /* Phone+CoreDataProperties.swift */,
+				6D2ECFCD1CF720FC00D867C3 /* Phone.swift */,
+				6D2ECFCE1CF720FC00D867C3 /* Person+CoreDataProperties.swift */,
+				6D2ECFCF1CF720FC00D867C3 /* Person.swift */,
 				6D52EB971CF6CE6D00AA81A9 /* AppDelegate.swift */,
 				6D52EB991CF6CE6D00AA81A9 /* DetailsViewController.swift */,
 				6D52EB9B1CF6CE6D00AA81A9 /* Main.storyboard */,
@@ -152,10 +158,12 @@
 			files = (
 				6D52EB9A1CF6CE6D00AA81A9 /* DetailsViewController.swift in Sources */,
 				6D52EBAF1CF6F0D500AA81A9 /* PeopleDataSource.swift in Sources */,
-				6D52EBB41CF708A000AA81A9 /* Person+CoreDataProperties.swift in Sources */,
 				6D52EBA01CF6CE6D00AA81A9 /* PeopleCoreDataDemo.xcdatamodeld in Sources */,
-				6D52EBB51CF708A000AA81A9 /* Person.swift in Sources */,
+				6D2ECFD31CF720FC00D867C3 /* Person.swift in Sources */,
+				6D2ECFD11CF720FC00D867C3 /* Phone.swift in Sources */,
+				6D2ECFD21CF720FC00D867C3 /* Person+CoreDataProperties.swift in Sources */,
 				6D52EBAD1CF6DDB800AA81A9 /* PeopleTableViewController.swift in Sources */,
+				6D2ECFD01CF720FC00D867C3 /* Phone+CoreDataProperties.swift in Sources */,
 				6D52EB981CF6CE6D00AA81A9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,6 +314,7 @@
 				6D52EBAB1CF6CE6D00AA81A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

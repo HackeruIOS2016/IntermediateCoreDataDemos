@@ -17,50 +17,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
-        addPeople()
-        
-        fetchPeople()
+ 
         return true
     }
-
-    func fetchPeople(){
-        let request = NSFetchRequest(entityName: "Person")
-        do{
-            let people = try  managedObjectContext.executeFetchRequest(request) as! [Person]
-            for person in people{
-                print(person.firstName)
-                print(person.lastName)
-            }
-        }
-        catch let e as NSError{
-            print(e)
-        }
-    }
+ 
     
-    func addPeople(){
-        
-        //which table
-        let personDescription = NSEntityDescription.entityForName("Person", inManagedObjectContext: managedObjectContext)!
-        
-        for i in 1...25{
-            //init a managed object: with person description
-            let moshe = Person(
-                entity: personDescription, insertIntoManagedObjectContext: managedObjectContext)
-        
-            //set some properties:
-            moshe.firstName = "Moshe \(i)" //.setValue("Moshe \(i)", forKey: "firstName")
-            moshe.lastName = "Dodger \(i)"//.setValue("Dodger \(i)", forKey: "lastName")
-        }
-        try! managedObjectContext.save()
-        
-//        do{
-//            try managedObjectContext.save()
+////    func addPeople(){
+//        
+//        //which table
+//        let personDescription = NSEntityDescription.entityForName("Person", inManagedObjectContext: managedObjectContext)!
+//        
+//        for i in 1...25{
+//            //init a managed object: with person description
+//            let moshe = Person(
+//                entity: personDescription, insertIntoManagedObjectContext: managedObjectContext)
+//        
+//            //set some properties:
+//            moshe.firstName = "Moshe \(i)" //.setValue("Moshe \(i)", forKey: "firstName")
+//            moshe.lastName = "Dodger \(i)"//.setValue("Dodger \(i)", forKey: "lastName")
 //        }
-//        catch let error as NSError{
-//            print(error)
-//        }
-    }
+//        try! managedObjectContext.save()
+//        
+////        do{
+////            try managedObjectContext.save()
+////        }
+////        catch let error as NSError{
+////            print(error)
+////        }
+//    }
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -106,7 +90,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("SingleViewCoreData.sqlite")
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
-            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+            var options = []
+            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: [
+                            NSMigratePersistentStoresAutomaticallyOption:true,
+                            NSInferMappingModelAutomaticallyOption:true
+                ]
+            )
         } catch {
             // Report any error we got.
             var dict = [String: AnyObject]()

@@ -123,8 +123,7 @@ class PeopleTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            let person = dataSource.people[indexPath.row]
-            dataSource.delete(person, index: indexPath.row)
+            dataSource.delete(indexPath.row)
             
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {

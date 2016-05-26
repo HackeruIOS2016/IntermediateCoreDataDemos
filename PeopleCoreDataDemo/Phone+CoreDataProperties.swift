@@ -1,5 +1,5 @@
 //
-//  Person+CoreDataProperties.swift
+//  Phone+CoreDataProperties.swift
 //  PeopleCoreDataDemo
 //
 //  Created by HackerU on 26/05/2016.
@@ -12,9 +12,10 @@
 import Foundation
 import CoreData
 
-extension Person {
+extension Phone {
 
-    @NSManaged var firstName: String
-    @NSManaged var lastName: String
+    @NSManaged var type: String
+    @NSManaged var number: String
+    @NSManaged var owner: Person?
 
 }
