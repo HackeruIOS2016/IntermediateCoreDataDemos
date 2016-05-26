@@ -12,6 +12,41 @@ import UIKit
 class PeopleTableViewController: UITableViewController {
 
     let dataSource = PeopleDataSource()
+    
+    @IBAction func addPerson(sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Add Person", message: nil, preferredStyle: .Alert)
+        
+        alert.addTextFieldWithConfigurationHandler { (textField) -> Void in
+            textField.placeholder = "First Name..."
+        }
+        
+        alert.addTextFieldWithConfigurationHandler { (textField) -> Void in
+            textField.placeholder = "Last Name..."
+        }
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in
+            print("Cancled")
+        }))
+        
+        
+        alert.addAction(UIAlertAction(title: "Save", style: .Default, handler: { (action) -> Void in
+            print("Saving...")
+            
+            let firstName =  alert.textFields![0].text!
+            let lastName =  alert.textFields![1].text!
+            
+            self.dataSource.addPerson(firstName, lastName: lastName)
+            
+            //1) update the model
+            //2) update the tableView
+           // self.tableView.reloadData()
+            
+            self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: self.dataSource.people.count - 1, inSection: 0)], withRowAnimation: .Top)
+        }))
+        
+        presentViewController(alert, animated: true){}
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,13 +88,13 @@ class PeopleTableViewController: UITableViewController {
     }
     
 
-    /*
+ 
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+   
 
     /*
     // Override to support editing the table view.

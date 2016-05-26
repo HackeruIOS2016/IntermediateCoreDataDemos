@@ -26,6 +26,8 @@ class PeopleDataSource {
         let request = NSFetchRequest(entityName: "Person")
         do{
             let peopleArray = try context.executeFetchRequest(request)
+            
+                people.removeAll()
             for p in peopleArray{
                 let firstName = p.valueForKey("firstName") as! String
                 let lastName = p.valueForKey("lastName") as! String
@@ -53,5 +55,8 @@ class PeopleDataSource {
         catch let e as NSError{
             print(e)
         }
+        let p = Person(firstName: firstName, lastName: lastName)
+        people.append(p)
+        //fetchPeople()
     }
 }

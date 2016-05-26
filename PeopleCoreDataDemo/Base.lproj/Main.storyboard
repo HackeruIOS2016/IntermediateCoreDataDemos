@@ -44,7 +44,13 @@
                             <outlet property="delegate" destination="fZf-er-wuM" id="ToB-8r-sLY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="bIM-Ik-gXE"/>
+                    <navigationItem key="navigationItem" id="bIM-Ik-gXE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dCp-wl-6Oc">
+                            <connections>
+                                <action selector="addPerson:" destination="fZf-er-wuM" id="z2z-sT-WpB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30I-jA-8dj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
