@@ -21,9 +21,12 @@ class PeopleDataSource {
         fetchPeople()
     }
     
-    func delete(person:Person){
+    func delete(person:Person, index:Int){
         context.deleteObject(person)
-        do{try context.save()}
+        do{
+            try context.save()
+            people.removeAtIndex(index)
+        }
         catch let e as NSError{
             print(e)
         }

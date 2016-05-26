@@ -124,7 +124,7 @@ class PeopleTableViewController: UITableViewController {
         if editingStyle == .Delete {
             // Delete the row from the data source
             let person = dataSource.people[indexPath.row]
-            dataSource.delete(person)
+            dataSource.delete(person, index: indexPath.row)
             
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
